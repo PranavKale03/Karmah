@@ -1,16 +1,26 @@
-import { Geist_Mono, Noto_Sans } from "next/font/google"
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
 
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import Navbar from "@/components/layout/Navbar"
+import { Providers } from "./providers"
+import { Toaster } from "@/components/ui/sonner"
+import { cn } from "@/lib/utils"
 
-const notoSans = Noto_Sans({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-sans",
 })
+
+export const metadata: Metadata = {
+  title: "Karmah | Master Your Tasks",
+  description: "A minimalist task management platform designed for absolute clarity and focus.",
+  openGraph: {
+    title: "Karmah",
+    description: "A minimalist task management platform designed for absolute clarity and focus.",
+    type: "website",
+  }
+}
 
 export default function RootLayout({
   children,
@@ -18,17 +28,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", notoSans.variable)}
-    >
-      <body>
-        <ThemeProvider>
-          <TooltipProvider>
-            {children}
-          </TooltipProvider>
-        </ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("min-h-screen bg-background font-sans antialiased", inter.variable)}>
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+          </div>
+          <Toaster />
+        </Providers>
       </body>
     </html>
   )
