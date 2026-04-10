@@ -31,23 +31,27 @@
 1. Clone the repository:
    ```bash
    git clone https://github.com/PranavKale03/Karmah.git
+   ```
+
+2. Navigate to the directory
+   ```bash
    cd karmah
    ```
 
-2. Install dependencies:
+3. Install dependencies:
    ```bash
    pnpm install
    ```
 
-3. Configure environment variables:
+4. Configure environment variables:
    Copy the example environment file and fill in your values:
    ```bash
    cp .env.example .env.local
    ```
 
-4. Run the development server:
+5. Run the development server:
    ```bash
-   pnpm dev
+   pnpm run dev
    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
