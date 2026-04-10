@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t border-border/60 bg-muted/20 pt-16 pb-10">
+    <footer className="w-full border-t border-border/60 bg-muted/20 pt-8 pb-10">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         
         {/* Main Content Area */}

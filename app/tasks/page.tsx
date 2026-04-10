@@ -18,7 +18,7 @@ export default function TasksPage() {
   const taskCount = tasks?.length || 0;
 
   return (
-    <main className="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
+    <main className="container mx-auto px-4 pt-28 pb-12 md:pt-36 md:pb-20 max-w-4xl">
       <div className="flex flex-col gap-8">
         
         {/* Header Row */}

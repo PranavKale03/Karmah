@@ -46,7 +46,7 @@ export default function FeaturesSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, i) => (
-          <div key={i} className="flex flex-col items-start p-8 rounded-2xl border bg-card hover:bg-muted/30 transition-colors shadow-sm cursor-default">
+          <div key={i} className="flex flex-col items-start p-8 rounded-2xl border bg-card hover:bg-muted/30 transition-colors cursor-default">
             <div className="p-3 rounded-xl bg-primary/10 mb-6">
               {feature.icon}
             </div>
