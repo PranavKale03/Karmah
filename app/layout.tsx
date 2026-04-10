@@ -13,13 +13,43 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Karmah | Master Your Tasks",
+  metadataBase: new URL("https://karmah.app"),
+  title: {
+    default: "Karmah | Master Your Tasks",
+    template: "%s | Karmah"
+  },
   description: "A minimalist task management platform designed for absolute clarity and focus.",
+  keywords: ["productivity", "task management", "minimalist", "focus", "to-do list"],
+  authors: [{ name: "Pranav Kale" }],
+  creator: "Pranav Kale",
   openGraph: {
-    title: "Karmah",
-    description: "A minimalist task management platform designed for absolute clarity and focus.",
     type: "website",
-  }
+    locale: "en_US",
+    url: "https://karmah.vercel.app",
+    title: "Karmah | Master Your Tasks",
+    description: "A minimalist task management platform designed for absolute clarity and focus.",
+    siteName: "Karmah",
+    images: [
+      {
+        url: "/Logo.png",
+        width: 1200,
+        height: 630,
+        alt: "Karmah Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Karmah | Master Your Tasks",
+    description: "A minimalist task management platform designed for absolute clarity and focus.",
+    images: ["/Logo.png"],
+    creator: "@pranavkale",
+  },
+  icons: {
+    icon: "/Logo.png",
+    shortcut: "/Logo.png",
+    apple: "/Logo.png",
+  },
 }
 
 export default function RootLayout({

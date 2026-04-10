@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { CheckSquare, Moon, Sun, LogOut } from "lucide-react";
+import { Moon, Sun, LogOut } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -49,11 +50,9 @@ export default function Navbar() {
         {/* Dynamic Logo Mapping */}
         <Link 
           href="/" 
-          className="flex items-center gap-2 font-semibold transition-opacity hover:opacity-80"
+          className="flex items-center gap-2 font-semibold transition-opacity hover:opacity-80 text-lg font-extrabold"
         >
-          <div className="flex h-7 w-7 items-center justify-center rounded bg-primary/10">
-            <CheckSquare className="h-4 w-4 text-primary" />
-          </div>
+          <Image src="/Logo.png" alt="Karmah Logo" width={36} height={36} className="rounded-lg border" />
           <span>Karmah</span>
         </Link>
         

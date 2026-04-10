@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -61,9 +62,9 @@ function LeftPanel() {
 
       {/* TOP */}
       <Link href="/">
-        <div className="relative z-10 flex w-fit items-center rounded-lg bg-primary/20 p-2">
-          <CheckSquare className="h-5 w-5 text-primary" />
-          <span className="ml-2 text-lg font-semibold tracking-tight text-white">
+        <div className="relative z-10 flex w-fit items-center gap-2 rounded-lg bg-primary/20 p-2">
+          <Image src="/Logo.png" alt="Karmah Logo" width={24} height={24} className="rounded" />
+          <span className="text-lg font-semibold tracking-tight text-white">
             Karmah
           </span>
         </div>
@@ -210,7 +211,7 @@ export default function AuthPage() {
         >
           <div className="mb-8 text-center">
             <div className="mb-4 flex flex-col items-center justify-center lg:hidden">
-              <CheckSquare className="mb-2 h-8 w-8 text-primary" />
+              <Image src="/Logo.png" alt="Karmah Logo" width={32} height={32} className="mb-2 rounded" />
               <span className="text-xl font-semibold tracking-tight text-foreground">
                 Karmah
               </span>

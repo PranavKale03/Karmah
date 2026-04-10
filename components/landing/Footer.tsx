@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { CheckSquare, Heart } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -13,10 +12,8 @@ export default function Footer() {
           {/* LEFT: Brand */}
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity">
-              <div className="flex h-7 w-7 items-center justify-center rounded bg-primary/10">
-                <CheckSquare className="h-4 w-4 text-primary" />
-              </div>
-              <span className="text-lg tracking-tight text-foreground">Karmah</span>
+              <Image src="/Logo.png" alt="Karmah Logo" width={42} height={42} className="rounded-lg border" />
+              <span className="text-xl tracking-tight text-foreground font-extrabold">Karmah</span>
             </Link>
             
             <p className="text-sm text-muted-foreground mt-2 max-w-[200px] leading-relaxed">
