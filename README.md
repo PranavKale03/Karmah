@@ -1,7 +1,5 @@
 # Karmah
 
-![Logo](public/Logo.png)
-
 **Karmah** is a premium, modern SaaS platform designed for high-performance task management and team collaboration. It features a sleek, minimalist aesthetic with a focus on user experience and productivity.
 
 ## ✨ Features
@@ -32,7 +30,7 @@
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/PranavKale03/Karmah.git
    cd karmah
    ```
 
