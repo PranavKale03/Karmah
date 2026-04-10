@@ -1,12 +1,26 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Plus, Calendar, MoreHorizontal } from "lucide-react";
 
 export default function HeroSection() {
   return (
     <section className="relative flex flex-col items-center justify-center min-h-screen pt-32 pb-20 px-4 md:px-8 text-center animate-in fade-in duration-500">
-      <div className="rounded-full border px-4 py-1 text-sm font-medium text-muted-foreground mb-8 bg-muted/20 backdrop-blur-sm animate-in slide-in-from-bottom-2 duration-500">
-        ✦ Simple. Focused. Powerful.
+      <div className="rounded-full border px-4 py-1 text-sm font-medium text-muted-foreground mb-8 bg-muted/20 backdrop-blur-sm animate-in slide-in-from-bottom-2 duration-500 overflow-hidden relative">
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes shimmer-move {
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            100% { transform: translateX(250%) skewX(-20deg); }
+          }
+        `}} />
+        <div 
+          className="absolute inset-y-0 w-full pointer-events-none" 
+          style={{ 
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+            animation: 'shimmer-move 2s infinite linear'
+          }}
+        />
+        <span className="relative">✦ Simple. Focused. Powerful.</span>
       </div>
       
       <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.1] max-w-4xl mx-auto mb-6">
@@ -49,37 +63,91 @@ export default function HeroSection() {
         </div>
 
         {/* Dashboard Mock Inner */}
-        <div className="p-6 md:p-10 pointer-events-none text-left">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight">My Tasks</h2>
-            <Button size="sm" className="rounded-full px-4 shadow-none">+ New task</Button>
+        <div className="p-4 sm:p-6 md:p-10 pointer-events-none text-left">
+          {/* Mock Header Row */}
+          <div className="flex justify-between items-center mb-6 sm:mb-8 gap-2">
+            <div className="flex items-end gap-2 sm:gap-3">
+              <h2 className="text-xl sm:text-3xl font-bold tracking-tight">My Tasks</h2>
+              <span className="text-xs sm:text-sm font-medium text-muted-foreground mb-1 whitespace-nowrap">3 tasks</span>
+            </div>
+            <Button size="sm" className="rounded-full px-3 sm:px-4 shadow-none gap-1.5 h-8 sm:h-9 text-xs sm:text-sm shrink-0">
+              <Plus className="h-3.5 w-3.5" />
+              New Task
+            </Button>
           </div>
 
-          <div className="flex gap-2 mb-6">
-            <Badge variant="secondary" className="bg-foreground text-background hover:bg-foreground rounded-full px-4 py-1 text-sm font-medium shadow-sm">All</Badge>
-            <Badge variant="outline" className="rounded-full px-4 py-1 text-sm font-medium text-muted-foreground border-transparent">Pending</Badge>
-            <Badge variant="outline" className="rounded-full px-4 py-1 text-sm font-medium text-muted-foreground border-transparent">Completed</Badge>
+          {/* Mock Filters Block */}
+          <div className="flex items-center gap-2 p-1 bg-secondary/30 rounded-full w-full sm:w-fit border border-border/50 mb-8 sm:mb-10 overflow-x-auto no-scrollbar">
+            <div className="flex items-center gap-2 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium bg-background text-foreground shadow-sm ring-1 ring-border/50 shrink-0">
+              <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
+              All
+            </div>
+            <div className="flex items-center gap-2 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground shrink-0">
+              <div className="h-2 w-2 rounded-full bg-yellow-500" />
+              Pending
+            </div>
+            <div className="flex items-center gap-2 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground shrink-0">
+              <div className="h-2 w-2 rounded-full bg-blue-500" />
+              In Progress
+            </div>
+            <div className="flex items-center gap-2 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium text-muted-foreground hover:text-foreground shrink-0">
+              <div className="h-2 w-2 rounded-full bg-green-500" />
+              Completed
+            </div>
           </div>
 
+          {/* Mock List Content */}
           <div className="flex flex-col gap-3">
             {[
-              { title: "Review quarterly product roadmap", status: "In Progress", dot: "bg-blue-500", date: "Today" },
-              { title: "Send tax documents to accountant", status: "Pending", dot: "bg-yellow-500", date: "Tomorrow" },
-              { title: "Update landing page copy", status: "Completed", dot: "bg-green-500", date: "Yesterday", done: true },
-              { title: "Schedule team synchronization", status: "Pending", dot: "bg-yellow-500", date: "Apr 15" }
+              { 
+                title: "Research on neural engines", 
+                desc: "Research on some papers about neural engines", 
+                status: "In Progress", 
+                statusColor: "bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-400",
+                dot: "bg-blue-500", 
+                date: "Apr 10, 2026" 
+              },
+              { 
+                title: "Update product roadmap", 
+                desc: "Focus on Q3 features and milestones", 
+                status: "Pending", 
+                statusColor: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-400",
+                dot: "bg-yellow-500", 
+                date: "Apr 12, 2026" 
+              },
+              { 
+                title: "Client review meeting", 
+                desc: "Finalize the contract and handover", 
+                status: "Completed", 
+                statusColor: "bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-400",
+                dot: "bg-green-500", 
+                date: "Yesterday", 
+                done: true 
+              }
             ].map((task, i) => (
-              <div key={i} className={`flex items-center justify-between px-5 py-4 rounded-xl border border-border/50 bg-card ${task.done ? 'opacity-50' : 'shadow-sm'}`}>
-                <div className="flex items-center gap-4">
-                  <div className={`h-2.5 w-2.5 rounded-full ${task.dot}`}></div>
-                  <span className={`font-medium sm:text-base text-sm ${task.done ? 'line-through text-muted-foreground text-opacity-80' : 'text-foreground'}`}>
-                    {task.title}
-                  </span>
+              <div key={i} className={`flex items-center justify-between px-3 sm:px-5 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-border/50 bg-card ${task.done ? 'opacity-50' : 'shadow-sm'}`}>
+                <div className="flex items-start gap-3 sm:gap-4 overflow-hidden">
+                  <div className="shrink-0 mt-1 sm:mt-1.5">
+                    <div className={`h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full ${task.dot}`}></div>
+                  </div>
+                  <div className="flex flex-col min-w-0">
+                    <span className={`font-bold text-sm sm:text-lg leading-tight sm:leading-normal truncate ${task.done ? 'line-through text-muted-foreground text-opacity-80' : 'text-foreground'}`}>
+                      {task.title}
+                    </span>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-3 text-xs sm:text-sm text-muted-foreground mt-0.5">
+                      <p className="truncate sm:max-w-none">{task.desc}</p>
+                      <div className="flex items-center gap-1 shrink-0 opacity-80 sm:opacity-100">
+                        <Calendar className="h-2.5 w-2.5 sm:h-3 w-3" />
+                        <span className="text-[10px] sm:text-sm">{task.date}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <Badge variant="secondary" className="hidden sm:inline-flex rounded-full text-xs font-semibold shadow-none border-transparent uppercase tracking-wider px-3 py-0.5">
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0 ml-2">
+                  <Badge variant="secondary" className={`hidden sm:inline-flex rounded-full text-[11px] font-bold shadow-none border-none py-1 px-3 ${task.statusColor}`}>
                     {task.status}
                   </Badge>
-                  <span className="text-xs font-medium text-muted-foreground min-w-[60px] text-right">{task.date}</span>
+                  <MoreHorizontal className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground" />
                 </div>
               </div>
             ))}
