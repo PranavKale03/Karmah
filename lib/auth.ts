@@ -44,5 +44,3 @@ export const getUser = (): User | null => {
 export const isAuthenticated = (): boolean => {
   return !!getToken();
 };
-
-export const DEMO_CREDENTIALS = { email: "demo@karmah.app", password: "demo1234" };

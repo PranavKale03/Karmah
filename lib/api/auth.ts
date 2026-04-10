@@ -28,10 +28,6 @@ export const signup = async (data: Record<string, string>): Promise<AuthResponse
 };
 
 export const getMe = async (): Promise<User> => {
-  // Gracefully fulfill isolated checks off internal state matching
-  const localUser = getUser();
-  if (localUser) {
-    return Promise.resolve(localUser);
-  }
-  return Promise.reject(new Error("Local User Session Missing"));
+  const res = await apiClient.get<{ success: boolean; data: any }>('/auth/me');
+  return mapUser(res.data.data);
 };

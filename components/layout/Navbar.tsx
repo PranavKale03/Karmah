@@ -36,7 +36,7 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-  if (pathname.startsWith('/login') || pathname.startsWith('/signup')) {
+  if (pathname.startsWith('/login')) {
     return null;
   }
 
@@ -70,14 +70,14 @@ export default function Navbar() {
                   pathname.startsWith("/tasks") ? "font-semibold text-foreground" : "text-foreground/60"
                 )}
               >
-                Tasks
+                My Tasks
               </Link>
             </nav>
           )}
 
           {/* Core Visual Tools */}
           <Button
-            variant="ghost"
+            variant="outline"
             size="icon"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             className="w-9 h-9 mr-1"
@@ -120,11 +120,8 @@ export default function Navbar() {
               </DropdownMenu>
             ) : (
               <div className="flex items-center gap-2">
-                <Button variant="ghost" className="hidden md:inline-flex px-5" asChild>
-                  <Link href="/login">Log in</Link>
-                </Button>
                 <Button asChild className="px-5 rounded-full">
-                  <Link href="/login">Sign up</Link>
+                  <Link href="/login">Get Started</Link>
                 </Button>
               </div>
             )

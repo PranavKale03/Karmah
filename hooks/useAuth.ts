@@ -1,15 +1,31 @@
+import { useEffect } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { login, signup, getMe } from '../lib/api/auth';
+import { loginAsDemoUser } from '../app/actions/auth';
 import { saveAuth, clearAuth, isAuthenticated } from '../lib/auth';
 
 export function useMe() {
-  return useQuery({
+  const queryClient = useQueryClient();
+  const router = useRouter();
+  
+  const query = useQuery({
     queryKey: ['me'],
     queryFn: getMe,
     enabled: isAuthenticated(),
     retry: false,
   });
+
+  useEffect(() => {
+    if (query.isError) {
+      // Clear auth and redirect if session is invalid or user not found
+      clearAuth();
+      queryClient.clear();
+      router.push('/login');
+    }
+  }, [query.isError, queryClient, router]);
+
+  return query;
 }
 
 export function useLogin() {
@@ -18,6 +34,20 @@ export function useLogin() {
 
   return useMutation({
     mutationFn: login,
+    onSuccess: (data) => {
+      saveAuth(data.token, data.user);
+      queryClient.invalidateQueries({ queryKey: ['me'] });
+      router.push('/tasks');
+    },
+  });
+}
+
+export function useDemoLogin() {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: loginAsDemoUser,
     onSuccess: (data) => {
       saveAuth(data.token, data.user);
       queryClient.invalidateQueries({ queryKey: ['me'] });

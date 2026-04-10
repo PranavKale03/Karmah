@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         
         {/* Main Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 md:gap-8">
           
           {/* COLUMN 1 — Brand */}
           <div className="col-span-1 flex flex-col items-start">
@@ -54,18 +54,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMN 3 — Account */}
-          <div className="flex flex-col">
-            <h4 className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
-              Account
-            </h4>
-            <div className="flex flex-col gap-2.5">
-              <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Sign in</Link>
-              <Link href="/login" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Create account</Link>
-            </div>
-          </div>
-
-          {/* COLUMN 4 — Company */}
+          {/* COLUMN 3 — Company */}
           <div className="flex flex-col">
             <h4 className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
               Company
