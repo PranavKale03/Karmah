@@ -56,21 +56,24 @@ type SignupFormValues = z.infer<typeof signupSchema>
 function LeftPanel() {
   return (
     <div className="relative z-0 hidden w-[45%] flex-shrink-0 flex-col justify-between overflow-hidden bg-zinc-950 p-10 lg:flex">
-      {/* Structural Illuminations */}
       <div className="pointer-events-none absolute top-[-80px] left-[-80px] h-[420px] w-[420px] rounded-full bg-primary/25 blur-[120px]" />
       <div className="pointer-events-none absolute right-[-60px] bottom-[-60px] h-[320px] w-[320px] rounded-full bg-violet-600/20 blur-[100px]" />
 
-      {/* TOP */}
       <Link href="/">
         <div className="relative z-10 flex w-fit items-center gap-2 rounded-lg bg-primary/20 p-2">
-          <Image src="/Logo.png" alt="Karmah Logo" width={24} height={24} className="rounded" />
+          <Image
+            src="/Logo.png"
+            alt="Karmah Logo"
+            width={24}
+            height={24}
+            className="rounded"
+          />
           <span className="text-lg font-semibold tracking-tight text-white">
             Karmah
           </span>
         </div>
       </Link>
 
-      {/* MIDDLE CONTAINER */}
       <div
         className="relative z-10 flex flex-1 flex-col justify-center opacity-0"
         style={{ animation: "fadeSlideIn 600ms ease-out forwards" }}
@@ -87,7 +90,6 @@ function LeftPanel() {
           in one place, beautifully simple.
         </p>
 
-        {/* Feature Triggers */}
         <div className="mt-8 flex flex-col gap-3">
           {[
             {
@@ -124,7 +126,6 @@ function LeftPanel() {
         </div>
       </div>
 
-      {/* BOTTOM */}
       <div className="relative z-10 text-xs font-medium text-zinc-600">
         &copy; {new Date().getFullYear()} Karmah Inc. All rights reserved.
       </div>
@@ -200,9 +201,7 @@ export default function AuthPage() {
     <div className="relative flex min-h-screen w-full">
       <LeftPanel />
 
-      {/* RIGHT PANEL COMPONENT */}
       <div className="relative flex flex-1 flex-col items-center justify-center overflow-hidden bg-background px-6 py-12">
-        {/* Soft Background Texture Effect */}
         <div className="pointer-events-none absolute top-[10%] right-[-100px] h-[400px] w-[400px] rounded-full bg-primary/5 blur-[80px]" />
 
         <div
@@ -211,7 +210,13 @@ export default function AuthPage() {
         >
           <div className="mb-8 text-center">
             <div className="mb-4 flex flex-col items-center justify-center lg:hidden">
-              <Image src="/Logo.png" alt="Karmah Logo" width={32} height={32} className="mb-2 rounded" />
+              <Image
+                src="/Logo.png"
+                alt="Karmah Logo"
+                width={32}
+                height={32}
+                className="mb-2 rounded"
+              />
               <span className="text-xl font-semibold tracking-tight text-foreground">
                 Karmah
               </span>
@@ -273,7 +278,6 @@ export default function AuthPage() {
             <div className="h-px flex-1 bg-border" />
           </div>
 
-          {/* DYNAMIC FORM MODAL CONTROLLER BIND */}
           <div
             key={activeTab}
             className="mt-4 opacity-0"
@@ -504,7 +508,6 @@ export default function AuthPage() {
             )}
           </div>
 
-          {/* BOTTOM AGREE TEXT */}
           <div className="mt-6 text-center text-xs leading-relaxed tracking-wide text-muted-foreground">
             By continuing, you agree to our{" "}
             <Link

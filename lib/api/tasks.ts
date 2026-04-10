@@ -37,7 +37,6 @@ export const deleteTask = async (id: string): Promise<void> => {
 };
 
 export const updateTaskStatus = async (id: string, status: string): Promise<Task> => {
-  // Overloads patch controller natively handling internal JSON state modifications
   const response = await apiClient.patch<{ success: boolean; data: any }>(`/tasks/${id}`, { status });
   return mapTask(response.data.data);
 };

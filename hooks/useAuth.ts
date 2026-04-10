@@ -18,7 +18,6 @@ export function useMe() {
 
   useEffect(() => {
     if (query.isError) {
-      // Clear auth and redirect if session is invalid or user not found
       clearAuth();
       queryClient.clear();
       router.push('/login');

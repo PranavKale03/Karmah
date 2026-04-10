@@ -33,7 +33,6 @@ export default function HowItWorksSection() {
       </div>
 
       <div className="relative flex flex-col md:flex-row gap-12 md:gap-8">
-        {/* Dashed Line Background */}
         <div className="hidden md:block absolute top-[110px] left-[15%] right-[15%] h-0 border-t-2 border-dashed border-border/70 z-0 pointer-events-none"></div>
 
         {steps.map((step, i) => (

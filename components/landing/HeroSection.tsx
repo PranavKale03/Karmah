@@ -47,9 +47,7 @@ export default function HeroSection() {
         No credit card required · Free forever
       </p>
 
-      {/* App Mockup */}
       <div className="w-full max-w-4xl mx-auto rounded-xl border border-border/50 bg-card shadow-sm overflow-hidden animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300 fill-mode-both">
-        {/* Browser Header */}
         <div className="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-muted/20">
           <div className="flex gap-2">
             <div className="h-3 w-3 rounded-full bg-red-400/90 shadow-sm"></div>
@@ -59,12 +57,10 @@ export default function HeroSection() {
           <div className="bg-background/80 border border-border/50 px-4 py-1 text-xs font-medium text-muted-foreground rounded-md w-64 text-center truncate pointer-events-none shadow-sm">
             app.karmah.com
           </div>
-          <div className="w-12"></div> {/* Geometric Spacer */}
+          <div className="w-12"></div>
         </div>
 
-        {/* Dashboard Mock Inner */}
         <div className="p-4 sm:p-6 md:p-10 pointer-events-none text-left">
-          {/* Mock Header Row */}
           <div className="flex justify-between items-center mb-6 sm:mb-8 gap-2">
             <div className="flex items-end gap-2 sm:gap-3">
               <h2 className="text-xl sm:text-3xl font-bold tracking-tight">My Tasks</h2>
@@ -76,7 +72,6 @@ export default function HeroSection() {
             </Button>
           </div>
 
-          {/* Mock Filters Block */}
           <div className="flex items-center gap-2 p-1 bg-secondary/30 rounded-full w-full sm:w-fit border border-border/50 mb-8 sm:mb-10 overflow-x-auto no-scrollbar">
             <div className="flex items-center gap-2 rounded-full px-3 sm:px-4 py-1 sm:py-1.5 text-xs sm:text-sm font-medium bg-background text-foreground shadow-sm ring-1 ring-border/50 shrink-0">
               <div className="h-2 w-2 rounded-full bg-muted-foreground/30" />
@@ -96,7 +91,6 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Mock List Content */}
           <div className="flex flex-col gap-3">
             {[
               { 

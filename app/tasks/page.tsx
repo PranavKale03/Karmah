@@ -13,15 +13,12 @@ export default function TasksPage() {
   const [activeFilter, setActiveFilter] = useState<string>(TASK_STATUS.ALL);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  // Used for fetching total task count across the whole system (or current filter)
   const { data: tasks } = useTasks(activeFilter);
   const taskCount = tasks?.length || 0;
 
   return (
     <main className="container mx-auto px-4 pt-28 pb-12 md:pt-36 md:pb-20 max-w-4xl">
       <div className="flex flex-col gap-8">
-        
-        {/* Header Row */}
         <div className="flex items-center justify-between">
           <div className="flex items-end gap-3 rounded-lg">
             <h1 className="text-3xl font-bold tracking-tight text-foreground">My Tasks</h1>
@@ -36,10 +33,8 @@ export default function TasksPage() {
           </Button>
         </div>
 
-        {/* Filters Block */}
         <TaskFilters activeFilter={activeFilter} onFilterChange={setActiveFilter} />
 
-        {/* List Content */}
         <TaskList activeFilter={activeFilter} />
 
         <CreateTaskDialog 

@@ -12,7 +12,6 @@ interface TaskListProps {
 }
 
 export function TaskList({ activeFilter }: TaskListProps) {
-  // Fetch tasks. Undefined skips filtering to load all.
   const filterParam = activeFilter === TASK_STATUS.ALL ? undefined : activeFilter;
   const { data: tasks, isLoading, error, refetch } = useTasks(filterParam);
 

@@ -5,7 +5,7 @@ export default function CTASection() {
   return (
     <section className="py-20 md:py-32 px-4 max-w-6xl mx-auto">
       <div className="mx-auto bg-muted/40 border border-border/50 rounded-[2rem] py-20 px-6 md:px-12 text-center backdrop-blur-sm relative overflow-hidden flex flex-col items-center">
-        {/* Subtle Decorative Ambience */}
+      
         <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
         <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none"></div>
 

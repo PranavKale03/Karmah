@@ -6,10 +6,8 @@ export default function Footer() {
     <footer className="w-full border-t border-border/60 bg-muted/20 pt-8 pb-10">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         
-        {/* Main Content Area */}
         <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-8">
           
-          {/* LEFT: Brand */}
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center gap-2 font-semibold hover:opacity-80 transition-opacity">
               <Image src="/Logo.png" alt="Karmah Logo" width={42} height={42} className="rounded-lg border" />
@@ -21,9 +19,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* RIGHT: Links Group */}
           <div className="grid grid-cols-2 gap-12 sm:gap-24">
-            {/* COLUMN 1 — Product */}
             <div className="flex flex-col">
               <h4 className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
                 Product
@@ -35,7 +31,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* COLUMN 2 — Company */}
             <div className="flex flex-col">
               <h4 className="text-xs font-medium tracking-widest uppercase text-muted-foreground mb-4">
                 Company
@@ -48,10 +43,8 @@ export default function Footer() {
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* BOTTOM BAR */}
         <div className="flex flex-col sm:flex-row justify-between items-center flex-wrap gap-4 border-t border-border/60 mt-12 pt-6">
           <p className="text-xs font-medium text-muted-foreground">
             &copy; {new Date().getFullYear()} Karmah Inc. All rights reserved.

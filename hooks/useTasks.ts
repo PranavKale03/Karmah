@@ -64,13 +64,10 @@ export function useUpdateTaskStatus() {
   return useMutation({
     mutationFn: ({ id, status }: { id: string; status: string }) => updateTaskStatus(id, status),
     onMutate: async ({ id, status }) => {
-      // Cancel pending refetches to avoid sync conflicts
       await queryClient.cancelQueries({ queryKey: ['tasks'] });
 
-      // Snapshot the previous state (to allow rollback on error)
       const previousTasks = queryClient.getQueryData(['tasks']);
 
-      // Perform optimistic update. We use setQueriesData to update any variants of ['tasks']
       queryClient.setQueriesData({ queryKey: ['tasks'] }, (oldData: Task[] | undefined) => {
         if (!oldData) return [];
         return oldData.map((task) => 
@@ -81,13 +78,11 @@ export function useUpdateTaskStatus() {
       return { previousTasks };
     },
     onError: (err, variables, context) => {
-      // Rollback to previous state using the context snapshotted in onMutate
       if (context?.previousTasks) {
         queryClient.setQueriesData({ queryKey: ['tasks'] }, context.previousTasks);
       }
     },
     onSettled: () => {
-      // Always sync with the server afterward
       queryClient.invalidateQueries({ queryKey: ['tasks'] });
     },
   });

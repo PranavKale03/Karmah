@@ -6,7 +6,6 @@ export const saveAuth = (token: string, user: User) => {
   if (typeof window !== "undefined") {
     localStorage.setItem("karmah_token", token);
     localStorage.setItem("karmah_user", JSON.stringify(user));
-    // Set cookie for middleware (expires in 7 days)
     document.cookie = `karmah_token=${token}; path=/; max-age=${7 * 24 * 60 * 60}; samesite=lax`;
   }
 };
@@ -15,7 +14,6 @@ export const clearAuth = () => {
   if (typeof window !== "undefined") {
     localStorage.removeItem("karmah_token");
     localStorage.removeItem("karmah_user");
-    // Clear cookie
     document.cookie = "karmah_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
   }
 };

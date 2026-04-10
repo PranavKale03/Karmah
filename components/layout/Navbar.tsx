@@ -24,11 +24,9 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // Data layers
   const { data: userFromQuery } = useMe();
   const logout = useLogout();
   
-  // Use localStorage cache instantly to prevent query flicker
   const user = userFromQuery || getUser();
   const isAuth = mounted ? isAuthenticated() : false;
 
@@ -47,7 +45,6 @@ export default function Navbar() {
       <header className="max-w-4xl mx-auto border border-border/50 bg-background/40 backdrop-blur-md rounded-full h-14 pointer-events-auto">
         <div className="flex h-full items-center justify-between px-2">
           
-          {/* LEFT: Branding */}
           <Link 
             href="/" 
             className="flex items-center gap-2 font-semibold transition-opacity hover:opacity-80 text-lg font-extrabold"
@@ -56,17 +53,14 @@ export default function Navbar() {
             <span>Karmah</span>
           </Link>
 
-          {/* RIGHT: Actions & Tools */}
           <div className="flex items-center gap-3">
             
-            {/* My Tasks Quick Link */}
             {mounted && isAuth && (
               <Button asChild variant="outline" size="sm" className="hidden sm:flex rounded-full h-9 px-4">
                 <Link href="/tasks">My Tasks</Link>
               </Button>
             )}
 
-            {/* Theme Overlay Toggle */}
             <Button
               variant="outline"
               size="icon"
@@ -84,7 +78,6 @@ export default function Navbar() {
               <span className="sr-only">Toggle theme</span>
             </Button>
 
-            {/* Auth Dependent Segment */}
             {mounted ? (
               isAuth ? (
                 <DropdownMenu>

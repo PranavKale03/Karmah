@@ -74,7 +74,6 @@ export function EditTaskDialog({ task, open, onOpenChange }: EditTaskDialogProps
     },
   });
 
-  // Re-sync form when task changes
   useEffect(() => {
     if (open) {
       form.reset({

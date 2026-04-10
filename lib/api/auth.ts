@@ -1,8 +1,6 @@
 import { apiClient } from './client';
 import { AuthResponse, User } from '../types';
-import { getUser } from '../auth';
 
-// Mapping utility for database translation
 const mapUser = (data: any): User => ({
   id: data._id || data.id,
   name: data.name,
