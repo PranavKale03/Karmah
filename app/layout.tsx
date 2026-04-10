@@ -35,7 +35,7 @@ export default function RootLayout({
             <Navbar />
             <main className="flex-1">{children}</main>
           </div>
-          <Toaster richColors={true} />
+          <Toaster richColors={true} position="top-center" />
         </Providers>
       </body>
     </html>

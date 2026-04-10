@@ -58,11 +58,11 @@ export default function Navbar() {
         </Link>
         
         {/* Utility / Routing Block */}
-        <div className="flex items-center gap-2 md:gap-4">
+        <div className="flex items-center gap-4">
           
           {/* Authenticated Links Area */}
           {mounted && isAuth && (
-            <nav className="hidden md:flex items-center gap-6 text-sm mr-4">
+            <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link
                 href="/tasks"
                 className={cn(
@@ -70,7 +70,9 @@ export default function Navbar() {
                   pathname.startsWith("/tasks") ? "font-semibold text-foreground" : "text-foreground/60"
                 )}
               >
-                My Tasks
+                <Button variant="outline">
+                  My Tasks
+                </Button>
               </Link>
             </nav>
           )}
@@ -80,7 +82,7 @@ export default function Navbar() {
             variant="outline"
             size="icon"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="w-9 h-9 mr-1"
+            className="w-9 h-9"
           >
             {mounted ? (
               <>
