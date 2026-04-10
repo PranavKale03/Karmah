@@ -13,7 +13,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://karmah.app"),
+  metadataBase: new URL("https://karmah.vercel.app"),
   title: {
     default: "Karmah | Master Your Tasks",
     template: "%s | Karmah"
